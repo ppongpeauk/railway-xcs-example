@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output              = "../src/generated"
+  // importFileExtension = "ts"
+  // moduleFormat        = "esm"
+  // previewFeatures = ["omitApi"]
+  // binaryTargets   = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Platform model
+model Platform {
+  id String @id @unique @default("main")
+
+  totalScans        Int @default(0)
+  totalScansDenied  Int @default(0)
+  totalScansGranted Int @default(0)
+
+  authLoginEnabled     Boolean @default(false)
+  authSignupEnabled    Boolean @default(false)
+  authSignupInviteOnly Boolean @default(false)
+}
