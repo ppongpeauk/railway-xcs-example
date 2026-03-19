@@ -1,6 +1,5 @@
 .DS_Store
 .vercel
-.env*.local
 generated/
 railway-backup*.*
 .claude/
